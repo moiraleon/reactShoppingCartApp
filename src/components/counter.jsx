@@ -13,11 +13,11 @@ class Counter extends Component {
         </React.Fragment>
         );
     }
-}
+    formatCount(){
+        const {count} = this.state;
+        return count === 0 ? 'Zero' : count;
+    }
+};
 
-formatCount(){
-    const {count} = this.state;
-    return count === 0 ? 'Zero' : count;
-}
  
 export default Counter;
