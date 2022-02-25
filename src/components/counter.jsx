@@ -4,8 +4,20 @@ import React, { Component } from 'react';
 class Counter extends Component {
     state={
         count:1,
-        tags: ['tag1','tag2','tag3']
+        //tags: ['tag1','tag2','tag3']
     };
+
+
+    //binding this object to allow handleIncrement to access 'this' from counter
+        //OPTION 1 -reliable (Option 2 is the arrow function in handle increment which is still experimental Before handleIncrement(){ After handleIncrement = () => {)
+    // constructor(){
+    //     super();
+    //     this.handleIncrement = this.handleIncrement.bind(this)
+    // }
+
+    handleIncrement = () => {  //naming convention for reactive elements is "handleSomething"
+        console.log('Increment Clicked')
+    }
 
     // styles ={
     //     fontSize: 10, //automatically appends px
@@ -18,10 +30,14 @@ class Counter extends Component {
         return (
         <React.Fragment>
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span> 
-            <button className='btn btn-secondary btn-sm'>Increment</button>
-            <ul>
+            <button 
+            onClick={this.handleIncrement} 
+            className='btn btn-secondary btn-sm'
+            >Increment</button>
+
+            {/* <ul>
                 {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
-            </ul>
+            </ul> */}
         </React.Fragment>
         );
     }
