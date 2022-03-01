@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state={
-        count:1,
+        count:0,
         //tags: ['tag1','tag2','tag3']
     };
 
@@ -15,9 +15,11 @@ class Counter extends Component {
     //     this.handleIncrement = this.handleIncrement.bind(this)//have to write this line for every event handler to bind the tis object to each event
     // }
 
-    handleIncrement = () => {  //naming convention for reactive elements is "handleSomething"
+    handleIncrement = (product) => {  //naming convention for reactive elements is "handleSomething"
         //this.state.count++; //this technically increases the count but is not recognized by react
-        this.setState({count: this.state.count + 1})
+        
+        console.log(product);
+        this.setState({count: this.state.count + 1}) //this statement tells react that the state of this component will change - then later the render method will be called
     }
 
     // styles ={
@@ -26,6 +28,11 @@ class Counter extends Component {
 
     // }
     //can use styles tag like so{/* style={this.styles} or do in line style style={{fontSize:30}} */} 
+
+    doHandleIncrement = () =>{
+        this.doHandleIncrement({id: 1});
+    };
+
 
     render() { 
         return (
