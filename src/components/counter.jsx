@@ -9,14 +9,14 @@ class Counter extends Component {
 
 
     //binding this object to allow handleIncrement to access 'this' from counter
-        //OPTION 1 -reliable (Option 2 is the arrow function in handle increment which is still experimental Before handleIncrement(){ After handleIncrement = () => {)
+        //OPTION 1(binding) -reliable (Option 2(inheriting) is the arrow function in handle increment which is still experimental Before handleIncrement(){ After handleIncrement = () => {)
     // constructor(){
     //     super();
-    //     this.handleIncrement = this.handleIncrement.bind(this)
+    //     this.handleIncrement = this.handleIncrement.bind(this)//have to write this line for every event handler to bind the tis object to each event
     // }
 
     handleIncrement = () => {  //naming convention for reactive elements is "handleSomething"
-        console.log('Increment Clicked')
+        console.log('Increment Clicked',this)
     }
 
     // styles ={
@@ -33,7 +33,9 @@ class Counter extends Component {
             <button 
             onClick={this.handleIncrement} 
             className='btn btn-secondary btn-sm'
-            >Increment</button>
+            >
+                Increment
+                </button>
 
             {/* <ul>
                 {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
