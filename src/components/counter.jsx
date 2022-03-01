@@ -16,7 +16,8 @@ class Counter extends Component {
     // }
 
     handleIncrement = () => {  //naming convention for reactive elements is "handleSomething"
-        console.log('Increment Clicked',this)
+        //this.state.count++; //this technically increases the count but is not recognized by react
+        this.setState({count: this.state.count + 1})
     }
 
     // styles ={
