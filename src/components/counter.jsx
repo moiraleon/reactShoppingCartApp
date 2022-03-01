@@ -15,7 +15,7 @@ class Counter extends Component {
     //     this.handleIncrement = this.handleIncrement.bind(this)//have to write this line for every event handler to bind the tis object to each event
     // }
 
-    handleIncrement = (product) => {  //naming convention for reactive elements is "handleSomething"
+    handleIncrement = product => {  //naming convention for reactive elements is "handleSomething"
         //this.state.count++; //this technically increases the count but is not recognized by react
         
         console.log(product);
@@ -29,9 +29,6 @@ class Counter extends Component {
     // }
     //can use styles tag like so{/* style={this.styles} or do in line style style={{fontSize:30}} */} 
 
-    doHandleIncrement = () =>{
-        this.doHandleIncrement({id: 1});
-    };
 
 
     render() { 
@@ -39,7 +36,7 @@ class Counter extends Component {
         <React.Fragment>
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span> 
             <button 
-            onClick={this.handleIncrement} 
+            onClick={()=> this.handleIncrement(product)} 
             className='btn btn-secondary btn-sm'
             >
                 Increment
