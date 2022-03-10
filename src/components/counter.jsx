@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state={
-        count:0,
+        // count:0,
         //tags: ['tag1','tag2','tag3']
     };
 
@@ -15,11 +15,11 @@ class Counter extends Component {
     //     this.handleIncrement = this.handleIncrement.bind(this)//have to write this line for every event handler to bind the tis object to each event
     // }
 
-    handleIncrement = product => {  //naming convention for reactive elements is "handleSomething"
+   // handleIncrement = product => {  //naming convention for reactive elements is "handleSomething"
         //this.state.count++; //this technically increases the count but is not recognized by react
         
-        console.log(product);
-        this.setState({count: this.state.count + 1}) //this statement tells react that the state of this component will change - then later the render method will be called
+     //   console.log(product);
+       // this.setState({count: this.state.count + 1}) //this statement tells react that the state of this component will change - then later the render method will be called
     }
 
     // styles ={
@@ -34,7 +34,9 @@ class Counter extends Component {
     render() { 
         return (
         <React.Fragment>
-            <span className={this.getBadgeClasses()}>{this.formatCount()}</span> 
+            {
+            <p>Hi</p>
+            /* <span className={this.getBadgeClasses()}>{this.formatCount()}</span> 
             <button 
             onClick={()=> this.handleIncrement(product)} 
             className='btn btn-secondary btn-sm'
@@ -44,20 +46,20 @@ class Counter extends Component {
 
             { <ul>
                 {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
-            </ul> }
+            </ul> } */}
         </React.Fragment>
         );
-    }
-    getBadgeClasses() {
-        let classes = 'badge m-2 badge-';
-        classes += this.state.count === 0 ? 'warning' : 'primary';
-        return classes;
-    }
+    // }
+    // getBadgeClasses() {
+    //     let classes = 'badge m-2 badge-';
+    //     classes += this.state.count === 0 ? 'warning' : 'primary';
+    //     return classes;
+    // }
 
-    formatCount(){
-        const {count} = this.state;
-        return count === 0 ? 'Zero' : count;
-    }
+    // formatCount(){
+    //     const {count} = this.state;
+    //     return count === 0 ? 'Zero' : count;
+    // }
 };
 
  
